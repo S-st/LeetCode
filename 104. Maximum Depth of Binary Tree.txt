@@ -1,0 +1,31 @@
+104. Maximum Depth of Binary Tree
+
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+二叉树最大深度。DFS or BFS。简单数据结构。
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(root==NULL){
+        return 0;
+    }
+        int i = maxDepth(root->left);
+        int t = maxDepth(root->right);
+        return i>t ? i+1:t+1;
+    }
+};

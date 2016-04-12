@@ -1,0 +1,52 @@
+226. Invert Binary Tree
+
+Invert a binary tree.
+
+     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+
+to
+     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+反转二叉树。题意很容易理解，关键在于编码，将二叉树根节点存入队列，设置一个标记指针，将节点的左右子树进行交换，通过对队列不断的push和pop形成反转的二叉树。
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        queue<TreeNode*> q;
+        if(root == NULL) return NULL;
+        q.push(root);
+        while(q.size()){
+            TreeNode *pNode = q.front();
+            q.pop();
+            TreeNode* pleft = pNode->left;
+            pNode->left = pNode->right;
+            pNode->right = pleft;
+            if(pNode->left){
+                q.push(pNode->left);
+            }
+            if(pNode->right){
+                q.push(pNode->right);
+            }
+        }
+        return root;
+    }
+};
