@@ -3,6 +3,6 @@
 
 
 
-    已解决题目列表（持续更新）：\<br>\<br>
-    237. Delete Node in a Linked List\<br>\<br>
+    已解决题目列表（持续更新）：<br><br>
+    237. Delete Node in a Linked List<br><br>
     292. Nim Game
