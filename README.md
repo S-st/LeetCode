@@ -3,5 +3,8 @@
 
 
 
-已解决题目列表（持续更新）：
-237. Delete Node in a Linked List
+####已解决题目列表（持续更新）：
+<br>
+#####237. Delete Node in a Linked List
+<br>
+#####292. Nim Game
