@@ -1,0 +1,31 @@
+171. Excel Sheet Column Number
+
+Related to question Excel Sheet Column Title
+
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+
+For example:
+
+    A -> 1
+    B -> 2
+    C -> 3
+    ...
+    Z -> 26
+    AA -> 27
+    AB -> 28 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+刚开始列了几个发现这是26个数一个循环的，想到是不是可以用进制转换做，26进制转十进制。事实证明是可以的，但是在开始列的过程中简单的以为ZZ是26*26，导致AAA的推算变成了1+26*26；导致无论怎么按照进制转换做出来的数都不对，后来终于发现A-Z是26个，AA-ZZ是26*26个，所以ZZ是26*27；这样AAA是1+26*27=1*26的0次幂+1*26的1次幂+1*26的2次幂。A~Z对应1-26，把相应的字符转换成数字按照26进制转换就得到正确结果。
+
+class Solution {
+public:
+    int titleToNumber(string s) {
+        int t=0;
+        for(int i=0;i<s.size();i++){
+            t= t*26+(s[i]-'A'+1);
+        }
+        return t;
+    }
+};

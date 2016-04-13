@@ -1,0 +1,41 @@
+283. Move Zeroes
+
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
+
+Note:
+You must do this in-place without making a copy of the array.
+Minimize the total number of operations.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+把数组所有的0放到最后，题意还是比较简单的很好理解，具体是转换的过程需要好好分析分析。可以设置两个数组下标，一个下标i用来遍历数组，一个下标index用来记录对数组中非0对象的处理。遍历数组遇到非0数据就将该数据置于标记下标（index）的位置，同时记录下标向后移（index++），最后遍历完成将index至数组末尾置0即可。
+
+题中例子为例演示具体实现过程：
+1、0,1,0,3,12	i=0;	index=0;
+2、1, ,0,3,12	i=1;	index=1;
+3、1, ,0,3,12	i=2;	index=1;
+4、1,3,0, ,12	i=3;	index=2;
+5、1,3,12, , 	i=4;	index=3;
+6、1,3,12,0,0(置0);
+
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int index = 0;
+        int len = nums.size();
+        for(int i = 0; i < len; i++)
+        {
+            if(nums[i]){
+                nums[index]=nums[i];
+                index++;
+            }
+        }
+        for(int i=index;i<len;i++)
+            nums[i]=0;
+    }
+};
