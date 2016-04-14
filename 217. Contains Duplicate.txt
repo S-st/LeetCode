@@ -1,0 +1,21 @@
+217. Contains Duplicate
+
+Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+题意还是很简单，找数组中是否出现重复元素，如果出现返回true，如果全部元素仅出现一次则返回false。
+开始的思路还是想把数组的所有数存在一个hashtable里然后遍历哈希表判断是否出现大于1的元素，结果发现哈希表不知道开多大合适，看到通过的ac代码运用set记录出现的数字，还是没有想到这个方法。自己想到的方法就是数组排序然后依次判断相邻元素是否相等。开始并没有运用sort函数，就是直接冒泡，但是数组数据量太大会超时，最后还是用sort函数直接排序ac了代码。
+
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+    std::sort(nums.begin(), nums.end());
+            for(int i=1;i<nums.size();i++){
+                if(nums[i]==nums[i-1]) return true; 
+                }
+                return false;
+            }
+};
