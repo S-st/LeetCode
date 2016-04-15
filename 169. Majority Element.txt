@@ -1,0 +1,20 @@
+169. Majority Element
+
+Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+
+You may assume that the array is non-empty and the majority element always exist in the array.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+开始的思路是排序后遍历数组将每个元素出现的个数进行记录最后比较和n/2的大小，提交后超时。后来想到排序好之后直接和nums[n/2]进行比较，因为没有注意到题目显示的majority element一直存在，所以把题目想复杂了(即nums[0]和nums[n/2]比较，nums[1]和nums[n/2+1]进行比较...)。其实还是非常简单的。
+
+
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        std::sort(nums.begin(),nums.end());
+        if(nums.size()==1) return nums[0];
+        return nums[nums.size()/2];
+    }
+};
