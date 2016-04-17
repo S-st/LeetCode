@@ -1,0 +1,33 @@
+100. Same Tree  
+
+
+Given two binary trees, write a function to check if they are equal or not.
+
+Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+判断两棵树是不是同样的。两个要求，一是树的整体结构是否一致，二是每个节点的值是否相同，都符合即为相同的树。
+(递归)
+
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if((p==NULL && q==NULL)||(p!=NULL && q!=NULL && q->val==p->val&&(isSameTree(p->left,q->left))&&(isSameTree(p->right,q->right)))){
+            return true;
+        }
+        else return false;
+    }
+};

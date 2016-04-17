@@ -1,0 +1,36 @@
+168. Excel Sheet Column Title
+
+Given a positive integer, return its corresponding column title as appear in an Excel sheet.
+
+For example:
+
+    1 -> A
+    2 -> B
+    3 -> C
+    ...
+    26 -> Z
+    27 -> AA
+    28 -> AB 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+和171是相反的一道题，把A-Z存在一个string数组中，同样的获取n的每一位去赋值相应的字母，这里要注意n为26的整数倍的情况。
+
+
+class Solution {
+public:
+    string convertToTitle(int n) {
+        string s[26]={"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        int t,i;
+        string result="";
+        string result1="";
+        while(n>0){
+            t=n%26;					//取每一位
+            if(t==0) t=26;			//判断n是否为26的整数倍
+            result1=s[t-1];			//给每一位赋值
+            result=result1+result;	//组合
+            n=(n-1)/26;				//需要减去1(下标从1开始不是从0开始，所以减去1)
+        }
+        return result;
+    }
+};

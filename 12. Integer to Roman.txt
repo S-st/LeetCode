@@ -1,0 +1,37 @@
+12. Integer to Roman
+
+Given an integer, convert it to a roman numeral.
+
+Input is guaranteed to be within the range from 1 to 3999.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+想到一个比较笨的方法：把个十百千位1-9全部列出来，再从数字中取每一位进行相应的赋值，求出这个数字一共n位之后进行n次循环把各个位转换成罗马数字。最后把每位组合在一起即是答案。
+
+
+
+class Solution {
+public:
+    string intToRoman(int num) {
+        string s;
+        string t="";
+        int n=0,w,num2=num;
+        string roman[4][10]={
+            {"","I","II","III","IV","V","VI","VII","VIII","IX"},
+            {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"},
+            {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"},
+            {"","M","MM","MMM"}
+        };
+        while(num2!=0){
+            num2=num2/10;
+            n++;
+        }
+        for(int i=0;i<n;i++){
+            w=num%10;  		//获取每个位
+            num=num/10;		//除去最后一位
+            s=roman[i][w];	//赋予罗马数字
+            t=s+t;			//组合
+        }
+        return t;
+    }
+};

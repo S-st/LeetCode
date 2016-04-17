@@ -1,0 +1,25 @@
+242. Valid Anagram
+
+
+Given two strings s and t, write a function to determine if t is an anagram of s.
+
+For example,
+s = "anagram", t = "nagaram", return true.
+s = "rat", t = "car", return false.
+
+Note:
+You may assume the string contains only lowercase alphabets.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+判断s和t是否含有全部的相同的元素，假定都是小写字母。将两个字符串排序逐位进行比较，有不同的即返回false，相同即返回true。
+
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        return s == t;
+    }
+};

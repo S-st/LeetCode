@@ -5,19 +5,29 @@
 
 ####已解决题目列表（持续更新）：
 <br>
-#####13. Roman to Integer 
+#####12. Integer to Roman
+<br>
+#####13. Roman to Integer
+<br>
+#####100. Same Tree
 <br>
 #####104. Maximum Depth of Binary Tree
+<br>
+#####168. Excel Sheet Column Title
 <br>
 #####169. Majority Element
 <br>
 #####171. Excel Sheet Column Number
+<br>
+#####206. Reverse Linked List
 <br>
 #####217. Contains Duplicate
 <br>
 #####226. Invert Binary Tree
 <br>
 #####237. Delete Node in a Linked List
+<br>
+#####242. Valid Anagram
 <br>
 #####258. Add Digits
 <br>
