@@ -1,0 +1,29 @@
+13. Roman to Integer 
+
+
+
+Given a roman numeral, convert it to an integer.
+
+Input is guaranteed to be within the range from 1 to 3999.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+百度了一下罗马数字命名规则（=.=），最简单粗暴的方法遍历字符串，从第一位开始，前一位比后一位大（或等于）就加上这一位，前一位比后一位小就减去这一位，最后返回总数就可以。
+
+
+class Solution {
+public:
+    int romanToInt(string s) {
+        int index[26];
+        int sum=0;
+        index['I'-'A']=1;index['V'-'A']=5;index['X'-'A']=10;index['L'-'A']=50;
+        index['C'-'A']=100;index['D'-'A']=500;index['M'-'A']=1000;
+        for(int i=0;i<s.size();i++){
+            if(index[s[i]-'A']>=index[s[i+1]-'A'])
+                sum += index[s[i]-'A'];
+            else 
+                sum -= index[s[i]-'A'];
+        }
+        return sum;
+    }
+};
