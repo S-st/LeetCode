@@ -35,6 +35,8 @@
 <br>
 #####258. Add Digits
 <br>
+#####263. Ugly Number
+<br>
 #####283. Move Zeroes
 <br>
 #####292. Nim Game
