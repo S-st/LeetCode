@@ -1,0 +1,28 @@
+70. Climbing Stairs 
+
+
+You are climbing a stair case. It takes n steps to reach to the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+上楼梯，每次可以上1或2个台阶，求上n个台阶的总共的方法。
+大致一推就能看出来这是个斐波那契数列（1,2,3,5,8....）但是用最简单的方法f[n]=f[n-1]+f[n-2]列出来显示超时(=.=!!)，因为比如f[5]=f[4]+f[3],f[4]=f[3]+f[2],这样f[3]会计算两次，这样n足够大的时候自然超时。
+一个简单的方法就是各个数只算一次。
+
+
+class Solution {
+public:
+    int climbStairs(int n) {
+        int one=0;
+        int two=1;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum=one+two;
+            one=two;
+            two=sum;
+        }
+        return sum;
+    }
+};
