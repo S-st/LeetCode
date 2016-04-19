@@ -1,0 +1,61 @@
+202. Happy Number
+
+
+Write an algorithm to determine if a number is "happy".
+
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
+
+Example: 19 is a happy number
+
+12 + 92 = 82
+82 + 22 = 68
+62 + 82 = 100
+12 + 02 + 02 = 1
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+1、2-6都不是happy number所以循环加完将n控制在<6的时候可以判断n是否为happy number。
+
+bool isHappy(int n) {
+    int sum;
+    while(n>6){
+        sum=0;
+        int index=0;
+        while(n){
+            index=n%10;
+            n=n/10;
+            sum=index*index+sum;
+        }
+        n=sum;
+    }
+    if(n==1) return 1;
+    else return 0;
+}
+
+2、运用c++容器和迭代器的方法。将每一步循环各位平方相加sum存入一个myset容器中，定义一个it向量迭代器。每次进行一次查找看sum是否在myset中。如果查找到了则说明n不是happy number。没找到就把sum存入myset中同时把sum赋给n继续循环。
+
+
+class Solution {
+public:
+    bool isHappy(int n) {
+        int index=0;
+        int sum=0;
+        set<int>myset;
+        set<int>::iterator it;
+        while(sum!=1){
+            do{
+                index=n%10;
+                n=n/10;
+                sum=index*index+sum;
+            }while(n>0);
+            if(sum==1) break;
+            else{
+                it=myset.find(sum);
+                if(it!=myset.end()) return false;
+                myset.insert(sum);
+                n=sum;
+                sum=0;
+            }
+        }
+        return true;
+    }
+};

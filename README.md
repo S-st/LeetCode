@@ -23,6 +23,8 @@
 <br>
 #####171. Excel Sheet Column Number
 <br>
+#####202. Happy Number
+<br>
 #####206. Reverse Linked List
 <br>
 #####217. Contains Duplicate
