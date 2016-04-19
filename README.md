@@ -46,3 +46,5 @@
 #####292. Nim Game
 <br>
 #####326. Power of Three
+<br>
+#####342. Power of Four
