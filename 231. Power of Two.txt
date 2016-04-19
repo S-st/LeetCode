@@ -1,0 +1,25 @@
+231. Power of Two
+
+
+Given an integer, write a function to determine if it is a power of two.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+判断一个数是不是2的幂次方所得。自然联想到这样的数换成二进制必然只有首位是1。在十进制转二进制中判断一下每次做完除法的商和余数的情况就可以了。当且仅当商为0时余数为1，其余计算过程中余数均为0，返回true。
+
+
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        int t,s;
+        //if(n==1) return true;
+        if(n<=0) return false;
+        while(n){
+            t=n%2;
+            s=n/2;
+            if(s!=0&&t==1) return false;
+            n=s;
+        }
+        return true;
+    }
+};

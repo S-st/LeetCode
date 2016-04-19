@@ -31,6 +31,8 @@
 <br>
 #####226. Invert Binary Tree
 <br>
+#####231. Power of Two
+<br>
 #####237. Delete Node in a Linked List
 <br>
 #####242. Valid Anagram
