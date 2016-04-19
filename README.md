@@ -44,3 +44,5 @@
 #####283. Move Zeroes
 <br>
 #####292. Nim Game
+<br>
+#####326. Power of Three

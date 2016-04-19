@@ -1,0 +1,45 @@
+326. Power of Three
+
+
+Given an integer, write a function to determine if it is a power of three.
+
+Follow up:
+Could you do it without using any loop / recursion?
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+1、开始没注意follow up，写了一个循环的也ac了=。=，思路和2的幂次方(231. Power of Two)大致一样，就是重点注意一下true or false的判断条件。
+
+
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        int t,s;
+        if(n<=0) return false;
+        while(n){
+            t=n%3;
+            s=n/3;
+            if((s!=0&&(t==1||t==2))||(s==0&&t==2)) return false;
+            n=s;
+        }
+        return true;
+    }
+};
+
+
+2、不用递归和循环，可以想到log函数。
+	3^x=n
+
+	log(3^x) = log(n)
+
+	x log(3) = log(n)
+
+	x = log(n) / log(3)
+这样可以求出来幂指数，可以把它转换成int型相减，如果等于0则说明n是3的幂次方所得。
+
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        double t=log10(n)/log10(3);
+        return (t-int(t)==0) ? true:false;
+    }
+};
