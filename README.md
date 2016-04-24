@@ -41,6 +41,8 @@
 <br>
 #####231. Power of Two
 <br>
+#####232. Implement Queue using Stacks
+<br>
 #####237. Delete Node in a Linked List
 <br>
 #####242. Valid Anagram
