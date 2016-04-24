@@ -1,0 +1,41 @@
+110. Balanced Binary Tree
+
+
+Given a binary tree, determine if it is height-balanced.
+
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+树上的任意结点的左右子树高度差不超过1，则为平衡二叉树。
+搜索递归，记录i结点的左子树高度h1和右子树高度h2，则i结点的高度为max(h1,h2)=1，|h1-h2|>1则不平衡
+
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int flag=1;
+    int dfs(TreeNode* root){
+        if(root==NULL) return true;
+        int h1,h2;
+        if(root->left==NULL) h1=0;
+        else h1=dfs(root->left);
+        if(root->right==NULL) h2=0;
+        else h2=dfs(root->right);
+        if(abs(h1-h2)>1) flag=0;
+        return max(h1,h2)+1;
+    }
+    bool isBalanced(TreeNode* root) {
+        dfs(root);
+        return flag;
+    }
+};
