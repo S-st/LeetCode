@@ -13,6 +13,8 @@
 <br>
 #####27. Remove Element
 <br>
+#####66. Plus One
+<br>
 #####70. Climbing Stairs
 <br>
 #####83. Remove Duplicates from Sorted List

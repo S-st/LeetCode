@@ -1,0 +1,41 @@
+66. Plus One
+
+
+Given a non-negative number represented as an array of digits, plus one to the number.
+
+The digits are stored such that the most significant digit is at the head of the list.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+用一个数组来代表一个非负整数，对这个整数进行+1操作，得到的结果也用数组进行表示。这个题目有假设前提： 数组里的数字都是在0-9范围内.
+
+分析
+
+知道前提后，这个题目就比较简单了，从数组最后一位开始，每个位需要判断是否需要进位，如果进位，自已设为0，否则自增即可。
+
+
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int i=digits.size()-1;
+        if(digits[i]<9){
+            digits[i]+=1;
+            return digits;
+        }
+        bool c=1;// 是否需要进位
+        for(int j=i;j>=0;j--){
+            if(!c) break;
+            if(digits[j]==9){
+                c=1;
+                digits[j]=0;// 进位后，原位置0
+                if(j==0){
+                    digits.insert(digits.begin(),1);// 数组首个数字进位后，需要新插入数字首位
+                }
+            }else {
+                c=0;
+                digits[j]+=1; // 不进位，就退出
+            }
+        }
+        return digits;
+    }
+};
