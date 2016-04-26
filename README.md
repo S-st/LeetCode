@@ -9,7 +9,9 @@
 <br>
 #####13. Roman to Integer
 <br>
-#####21. Merge Two Sorted Lists 
+#####21. Merge Two Sorted Lists
+<br>
+#####26. Remove Duplicates from Sorted Array
 <br>
 #####27. Remove Element
 <br>
